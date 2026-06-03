@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form - Batam Eco Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+    <div class="auth-wrapper register-page-bg">
+        <div class="auth-container register-dashed-box">
+            <div class="auth-header">
+                <h2>Halaman Pendaftaran</h2>
+                <p>Bergabunglah dengan ekosistem digital untuk memantau kesehatan kota kita.</p>
+            </div>
+
+            <form action="dashboard.html" method="GET">
+                <div class="form-group">
+                    <label>NAMA LENGKAP</label>
+                    <div class="input-with-icon">
+                        <i class="fa-regular fa-user field-icon"></i>
+                        <input type="text" placeholder="Contoh: Budi Santoso" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ALAMAT EMAIL</label>
+                    <div class="input-with-icon">
+                        <i class="fa-regular fa-envelope field-icon"></i>
+                        <input type="email" placeholder="nama@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>NOMOR TELEPON</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-phone field-icon"></i>
+                        <input type="tel" placeholder="0812xxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>KATA SANDI</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-lock field-icon"></i>
+                        <input type="password" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye toggle-password-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>KONFIRMASI</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-rotate-left field-icon"></i>
+                        <input type="password" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye toggle-password-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>KELURAHAN/KECAMATAN</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-location-dot field-icon"></i>
+                        <select required>
+                            <option value="" disabled selected>Pilih Wilayah Anda</option>
+                            <option value="batam-kota">Batam Kota</option>
+                            <option value="lubuk-baja">Lubuk Baja</option>
+                            <option value="batu-ampar">Batu Ampar</option>
+                            <option value="nongsa">Nongsa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-auth-submit-full">Daftar Sekarang</button>
+            </form>
+
+            <p class="auth-footer-text">Sudah punya akun? <a href="login.html">Masuk</a></p>
+        </div>
+
+        <footer class="register-page-footer">
+            <div class="footer-left">
+                <h4>Batam Eco Portal</h4>
+                <p>© 2024 Urban Emerald Civic Portal. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

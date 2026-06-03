@@ -1,0 +1,586 @@
+/* ======================================================= */
+/* LAYOUT UTAMA DASHBOARD FLEET & TRUCK ROUTE              */
+/* ======================================================= */
+
+.fleet-dashboard-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0f172a;
+}
+
+/* --- SIDEBAR KIRI STYLE --- */
+.fleet-sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    height: 100%;
+}
+
+.fleet-brand-section .brand-title-green {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #034c43;
+    margin-bottom: 20px;
+}
+
+.sub-brand-info h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.sub-brand-info p {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.fleet-menu-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fleet-menu-links li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+}
+
+.fleet-menu-links li.active {
+    background-color: #7c6e11;
+    color: #ffffff;
+}
+
+.fleet-sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btn-emergency-alert {
+    background-color: #ba1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fleet-sub-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.fleet-sub-menu li {
+    font-size: 0.8rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* --- KONTEN UTAMA DAN NAV ATAS --- */
+.fleet-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f8fafc;
+}
+
+.fleet-top-mini-nav {
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.mini-nav-tabs {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+}
+
+.mini-nav-tabs .tab-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    border-bottom: 2px solid transparent;
+}
+
+.mini-nav-tabs .tab-link.active {
+    color: #034c43;
+    border-bottom-color: #034c43;
+}
+
+.mini-nav-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mini-nav-right-actions .icon-btn {
+    font-size: 1.1rem;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.avatar-badge-yellow {
+    width: 28px;
+    height: 28px;
+    background-color: #eab308;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+/* --- WORKSPACE GRID SYSTEM --- */
+.fleet-workspace-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    height: calc(100vh - 56px);
+}
+
+/* --- PANEL PANEL STATUS ARMADA --- */
+.fleet-status-panel {
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.status-panel-header .status-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-title-row h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btn-filter-icon {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.live-indicator-txt {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #059669;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #059669;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.search-box-container {
+    position: relative;
+    margin: 15px 0;
+}
+
+.search-box-container .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.search-box-container input {
+    width: 100%;
+    padding: 10px 10px 10px 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    font-size: 0.82rem;
+}
+
+/* LIST CARDS SCROLLABLE */
+.fleet-cards-scroll {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 4px;
+}
+
+.fleet-status-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+    background-color: #ffffff;
+}
+
+.fleet-status-card.border-left-green { border-left: 4px solid #059669; }
+.fleet-status-card.border-left-yellow { border-left: 4px solid #ca8a04; }
+
+.card-top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.truck-name-info {
+    display: flex;
+    gap: 10px;
+}
+
+.truck-name-info i {
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.icon-green { color: #059669; }
+.icon-yellow { color: #ca8a04; }
+
+.truck-name-info h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.truck-name-info p {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.badge-status {
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.bg-light-green { background-color: #ecfdf5; }
+.text-green { color: #059669; }
+.bg-yellow { background-color: #ca8a04; }
+.text-white { color: #ffffff; }
+
+.card-bottom-progress .location-eta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+}
+
+.lbl-loc { color: #94a3b8; font-weight: 600; }
+.txt-eta { color: #2563eb; font-weight: 500; }
+.txt-eta .bold { font-weight: 700; }
+
+.card-bottom-progress h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.fleet-progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.fill-bar { height: 100%; }
+.fill-bar.bg-green { background-color: #059669; }
+.fill-bar.bg-yellow { background-color: #ca8a04; }
+
+.progress-percent-lbl {
+    font-size: 0.65rem;
+    color: #64748b;
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* ACCORDION FOOTER DETAIL BOX */
+.selected-truck-details-box {
+    margin-top: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.accordion-toggle-header {
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.accordion-inner-content {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.accordion-inner-content .info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+}
+
+.info-item .lbl { color: #64748b; }
+.info-item .val { color: #1e293b; display: flex; align-items: center; gap: 4px; }
+.info-item .val.bold { font-weight: 700; }
+.dot-indicator.green { width: 6px; height: 6px; background-color: #059669; border-radius: 50%; display: inline-block; }
+
+/* --- MAPS TRACKING PANEL SYSTEM --- */
+.fleet-map-panel {
+    position: relative;
+    background-color: #2b3947; /* Fallback warna peta */
+    background-image: radial-gradient(#3a4a5b 1px, transparent 1px); /* Pola grid peta dummy */
+    background-size: 20px 20px;
+    overflow: hidden;
+}
+
+.floating-map-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: #034c43;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pulse-dot-red {
+    width: 6px;
+    height: 6px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    animation: flash 1.5s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* FLOATING CONTROLS */
+.map-zoom-controls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-zoom {
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LEGENDA FLOATING CONTAINER */
+.map-legend-floating-card {
+    position: absolute;
+    bottom: 100px;
+    left: 16px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px;
+    width: 180px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.map-legend-floating-card h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.map-legend-floating-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.map-legend-floating-card li {
+    font-size: 0.68rem;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.line-ln { width: 14px; height: 3px; display: inline-block; }
+.line-green { background-color: #059669; }
+.line-dashed { border-top: 2px dashed #94a3b8; }
+.marker-pt { width: 8px; height: 8px; display: inline-block; }
+.mark-circle { background-color: #2563eb; border-radius: 50%; }
+.mark-truck { background-color: #034c43; transform: rotate(45deg); }
+
+/* POPUP PIN TRUK */
+.map-truck-pin-popup {
+    position: absolute;
+    transform: translate(-50%, -100%);
+}
+
+.popup-box {
+    background-color: #ffffff;
+    border: 1px solid #034c43;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #034c43;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.popup-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10px;
+}
+
+/* OVERLAY BAR METRIK BAWAH */
+.map-bottom-metrics-bar {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.2fr;
+    gap: 12px;
+}
+
+.metric-mini-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+
+.metric-mini-card .m-lbl {
+    font-size: 0.58rem;
+    color: #94a3b8;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.m-val-group {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.m-val-group h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.m-val-group h3 .unit { font-size: 0.75rem; font-weight: 600; color: #64748b; }
+.m-val-group .m-sub { font-size: 0.7rem; font-weight: 700; }
+
+.metric-action-card-green {
+    background-color: #034c43;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.metric-action-card-green .act-lbl {
+    font-size: 0.55rem;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+.metric-action-card-green h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.act-arrow { font-size: 0.85rem; }

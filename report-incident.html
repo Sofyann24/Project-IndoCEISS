@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporkan Insiden - Batam EcoPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/report-incident.css" />
+  </head>
+  <body>
+    <!-- TOP NAVBAR -->
+    <top-navbar></top-navbar>
+
+    <!-- MAIN CONTAIN AREA (TANPA SIDEBAR) -->
+    <main class="content-wrapper-full reveal">
+      <div class="container-inner">
+        <!-- TOMBOL BACK DI DALAM MAIN CONTENT -->
+        <div class="back-action-row">
+          <a href="traffic.html" class="btn-content-back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+
+        <!-- HEADER HALAMAN -->
+        <div class="page-title-block">
+          <div class="title-left">
+            <h2>Laporkan Insiden</h2>
+            <p class="subtitle">
+              Membantu menjaga Batam tetap aman dan hijau dengan pelaporan data
+              yang akurat.
+            </p>
+          </div>
+          <div class="status-badges">
+            <span class="badge-pill bg-yellow-pill">Portal Publik</span>
+            <span class="badge-pill bg-teal-pill">Verified 24/7</span>
+          </div>
+        </div>
+
+        <!-- TWO COLUMN LAYOUT CONTENT -->
+        <div class="form-grid-layout">
+          <!-- KOLOM KIRI: DETAIL LAPORAN -->
+          <section class="form-left-card">
+            <div class="card-title-header">
+              <i class="fa-solid fa-file-invoice text-teal"></i>
+              <h3>Detail Laporan</h3>
+            </div>
+
+            <form action="#" method="POST" class="main-incident-form">
+              <div class="form-group">
+                <label>JENIS INSIDEN</label>
+                <div class="select-wrapper">
+                  <select required>
+                    <option value="" disabled selected>
+                      Pilih Jenis Insiden...
+                    </option>
+                    <option value="jalan-rusak">
+                      Infrastruktur / Jalan Rusak
+                    </option>
+                    <option value="sampah">Penumpukan Sampah Liar</option>
+                    <option value="banjir">Genangan Air / Banjir</option>
+                    <option value="pohon-tumbang">Pohon Tumbang</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>DESKRIPSI LENGKAP</label>
+                <textarea
+                  placeholder="Ceritakan detail kejadian secara kronologis..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-row-twin">
+                <div class="form-group">
+                  <label>INFORMASI KONTAK</label>
+                  <input type="text" placeholder="Nama Lengkap" />
+                </div>
+                <div class="form-group">
+                  <label class="label-with-badge">
+                    <span>&nbsp;</span>
+                    <!-- Spacer alignment -->
+                    <span class="badge-optional">Opsional</span>
+                  </label>
+                  <input type="text" placeholder="Email atau Nomor WhatsApp" />
+                </div>
+              </div>
+
+              <!-- FOOTER FORM & SUBMIT -->
+              <div class="form-submit-bar">
+                <p class="privacy-notice">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  Data Anda akan diproses oleh Dinas Perhubungan & Lingkungan
+                  Hidup.
+                </p>
+                <button type="submit" class="btn-submit-report">
+                  KIRIM LAPORAN <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- KOLOM KANAN: MAPS & UNGGAH GAMBAR -->
+          <section class="form-right-column">
+            <!-- CARD LOKASI / MAP MOCKUP -->
+            <div class="interactive-map-card">
+              <div class="map-card-header">
+                <i class="fa-solid fa-location-crosshairs text-teal"></i>
+                <div class="map-header-txt">
+                  <h4>Tandai Lokasi di Batam</h4>
+                  <p>Geser pin ke titik kejadian</p>
+                </div>
+              </div>
+
+              <div class="map-render-box">
+                <!-- Background simulasi peta gelap Batam -->
+                <div class="map-mock-bg">
+                  <div class="map-zoom-controls">
+                    <button type="button">+</button>
+                    <button type="button">-</button>
+                    <button type="button">
+                      <i class="fa-solid fa-location-arrow"></i>
+                    </button>
+                  </div>
+                  <div class="center-marker-pin">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div class="map-alert-zone">
+                    <span class="zone-tag"
+                      ><i class="fa-solid fa-triangle-exclamation"></i> ZONA
+                      RAWAN</span
+                    >
+                    <p>Waspada saat melaporkan di Distrik ini.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD UPLOAD BUKTI -->
+            <div class="upload-evidence-card">
+              <div class="upload-dropzone">
+                <div class="upload-icon-circle">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h4>Unggah Bukti Foto</h4>
+                <p>
+                  Seret foto ke sini atau klik untuk memilih file. Maksimal 3
+                  foto (JPG, PNG).
+                </p>
+
+                <div class="upload-slots-row">
+                  <div class="slot-btn"><i class="fa-solid fa-plus"></i></div>
+                  <div class="slot-btn"><i class="fa-solid fa-plus"></i></div>
+                  <div class="slot-btn"><i class="fa-solid fa-plus"></i></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD PANDUAN KESELAMATAN -->
+            <div class="safety-guide-card">
+              <h5>
+                <i class="fa-solid fa-circle-info"></i> Panduan Keselamatan
+              </h5>
+              <ol>
+                <li>
+                  Pastikan Anda berada dalam posisi aman sebelum mengambil foto.
+                </li>
+                <li>
+                  Jangan menghambat arus lalu lintas atau petugas darurat.
+                </li>
+                <li>Laporan palsu dapat dikenakan sanksi administratif.</li>
+              </ol>
+            </div>
+          </section>
+        </div>
+
+        <!-- SUMMARY MINI METRICS ROW -->
+        <section class="summary-metrics-row">
+          <div class="metric-card">
+            <h4>12k</h4>
+            <p>Laporan Selesai</p>
+          </div>
+          <div class="metric-card">
+            <h4>15m</h4>
+            <p>Respon Rata-rata</p>
+          </div>
+          <div class="metric-card">
+            <h4>98%</h4>
+            <p>Puas</p>
+          </div>
+          <div class="metric-card">
+            <h4>24h</h4>
+            <p>Layanan Aktif</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="eco-footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h4>Batam EcoPortal</h4>
+          <p>
+            © 2026 Batam City Environmental Stewardship. Modernizing urban
+            mobility through data-driven transparency.
+          </p>
+        </div>
+        <div class="footer-right-links">
+          <a href="#">Environmental Policy</a>
+          <a href="#">Public API</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </footer>
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/components/sidebar.js" defer></script>
+    <script src="js/components/navbar.js" defer></script>
+  </body>
+</html>

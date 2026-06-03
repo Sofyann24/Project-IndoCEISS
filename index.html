@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batam EcoPortal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-leaf"></i> Batam EcoPortal
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="climate.html">Climate Tracking</a></li>
+            <li><a href="#">Traffic Map</a></li>
+            <li><a href="#">Waste Management</a></li>
+            <li class="nav-auth">
+                <button class="btn-register"><a href="/auth/register.html">Register</a></button>
+                <button class="btn-login"><a href="/auth/login.html">Login</a></button>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80');">
+                <h1 class="hero-title animate-text">Mari Bersama Menjaga Hutan Dengan Mengikuti Gerakan Menanam 1.000 Pohon</h1>
+            </div>
+            
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80');">
+                <h1 class="hero-title">Edukasi Sejak Dini Untuk Menjaga Kelestarian Ekosistem Batam</h1>
+            </div>
+
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80');">
+                <h1 class="hero-title">Pantau Kualitas Udara Beserta Lingkungan di Sekitarmu Secara Real-Time</h1>
+            </div>
+        </div>
+        
+        <button class="carousel-btn prev-btn" id="prev-slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-btn next-btn" id="next-slide"><i class="fa-solid fa-chevron-right"></i></button>
+    </header>s
+
+    <main class="container">
+        
+        <section class="ecopulse-card reveal">
+            <div class="pulse-info">
+                <span class="badge">LIVE UPDATES</span>
+                <h2>Batam EcoPulse</h2>
+                <p class="ai-summary">
+                    <strong>AI Summary:</strong> Overall conditions are favorable today. Air quality remains 'Good' across most districts, with minor congestion reported near Nagoya Hill. Humidity is high, indicative of the rainy season approach.
+                </p>
+                <button class="btn-detail">Detailed Report</button>
+            </div>
+            <div class="pulse-stats">
+                <div class="stat-box">
+                    <i class="fa-solid fa-temperature-high icon-temp"></i>
+                    <span class="stat-value">32°</span>
+                    <span class="stat-label">Celsius</span>
+                </div>
+                <div class="stat-box badge-good">
+                    <i class="fa-solid fa-wind icon-air"></i>
+                    <span class="stat-value">45</span>
+                    <span class="stat-label-badge">Good AQI</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics-section">
+            <div class="metrics-header">
+                <h3>Environmental Metrics</h3>
+                <a href="#" class="view-all">View All Data <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card reveal">
+                    <div class="card-title-area">
+                        <span class="icon-wrapper green-bg"><i class="fa-solid fa-tree"></i></span>
+                        <h4>Forest Cover</h4>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-number">42%</span>
+                        <p>+1.2% increase since last quarter due to massive replanting in Nongsa.</p>
+                    </div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="card-title-area">
+                        <span class="icon-wrapper blue-bg"><i class="fa-solid fa-smog"></i></span>
+                        <h4>Emissions</h4>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-number">-5%</span>
+                        <p>Reduction in industrial CO2 emissions primarily in Batu Ampar sector.</p>
+                    </div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="card-title-area">
+                        <span class="icon-wrapper yellow-bg"><i class="fa-solid fa-solar-panel"></i></span>
+                        <h4>Renewables</h4>
+                    </div>
+                    <div class="metric-data">
+                        <span class="metric-number">18%</span>
+                        <p>Of city power now sourced from new solar farms near Barelang.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h5><i class="fa-solid fa-leaf"></i> Batam EcoPortal</h5>
+                <p>&copy; 2026 Batam City Environmental Stewardship. Modernizing urban mobility through data-driven transparency.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Environmental Policy</a>
+                <a href="#">Public API</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Legal</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

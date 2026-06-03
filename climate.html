@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atmosfer Monitor - Batam EcoPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/climate.css" />
+    <link rel="stylesheet" href="css/bar.css" />
+  </head>
+  <body>
+    <app-navigation active-page="climate">
+      <div class="dashboard-wrapper">
+        <div class="dash-body">
+          <main class="dash-content reveal">
+            <div class="climate-content-header">
+              <div class="c-header-text">
+                <h2>Atmosfer Monitor</h2>
+                <p>
+                  Real-time climate and environmental tracking for Batam City.
+                </p>
+              </div>
+              <div class="c-header-buttons">
+                <button class="btn-outline-action">
+                  <i class="fa-solid fa-share-nodes"></i> Share Report
+                </button>
+                <button class="btn-yellow-action">
+                  <i class="fa-solid fa-download"></i> Export Data
+                </button>
+              </div>
+            </div>
+
+            <div class="climate-split-grid">
+              <div class="weather-radar-card">
+                <div class="radar-card-title">
+                  <h4>
+                    <i class="fa-solid fa-satellite-dish"></i> Weather Radar
+                  </h4>
+                  <span class="radar-status-tag">Predictive Active</span>
+                </div>
+                <div
+                  class="radar-map-frame"
+                  style="
+                    background-image: url(&quot;https://images.unsplash.com/photo-1524661135339-9140b00787e3?auto=format&fit=crop&w=1200&q=80&quot;);
+                  "
+                >
+                  <div class="radar-pulse-circle"></div>
+                  <div class="radar-marker marker-1"></div>
+                  <div class="radar-marker marker-2"></div>
+                  <div class="radar-center-text">Batam</div>
+
+                  <div class="radar-map-controls">
+                    <button><i class="fa-solid fa-plus"></i></button>
+                    <button><i class="fa-solid fa-minus"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="climate-right-sidebar-panel">
+                <div class="climate-widget-box">
+                  <h4>Rain Forecast (12h)</h4>
+                  <div class="chart-bars-container">
+                    <div class="bar-item">
+                      <span class="bar-fill" style="height: 30%"></span
+                      ><span class="bar-label">Now</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-fill" style="height: 50%"></span
+                      ><span class="bar-label">3h</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-fill" style="height: 85%"></span
+                      ><span class="bar-label">6h</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-fill" style="height: 40%"></span
+                      ><span class="bar-label">9h</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-fill" style="height: 20%"></span
+                      ><span class="bar-label">12h</span>
+                    </div>
+                  </div>
+                  <div class="chart-y-axis">
+                    <span>High</span><span>Med</span><span>Low</span>
+                  </div>
+                </div>
+
+                <div class="climate-widget-box">
+                  <h4><i class="fa-solid fa-route"></i> Route Probability</h4>
+                  <form
+                    class="route-calc-form"
+                    onsubmit="event.preventDefault()"
+                  >
+                    <div class="input-route-group">
+                      <i class="fa-solid fa-location-dot src-ico"></i>
+                      <input
+                        type="text"
+                        value="From (e.g., Batam Center)"
+                        placeholder="Titik Keberangkatan"
+                      />
+                    </div>
+                    <div class="input-route-group">
+                      <i class="fa-solid fa-flag-checkered dest-ico"></i>
+                      <input type="text" placeholder="To (e.g., Nagoya)" />
+                    </div>
+                    <button class="btn-calculate-route">Calculate Route</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="climate-macro-metrics-grid">
+              <div class="macro-card">
+                <span class="macro-label">AQI</span>
+                <div class="macro-value-row">
+                  <h2>42</h2>
+                  <i class="fa-solid fa-circle-check txt-green"></i>
+                </div>
+                <p class="macro-desc">Good</p>
+              </div>
+
+              <div class="macro-card">
+                <span class="macro-label">Temp</span>
+                <div class="macro-value-row">
+                  <h2>32°</h2>
+                  <i class="fa-solid fa-temperature-high txt-orange"></i>
+                </div>
+                <p class="macro-desc">Feels like 35°</p>
+              </div>
+
+              <div class="macro-card">
+                <span class="macro-label">Humidity</span>
+                <div class="macro-value-row">
+                  <h2>85%</h2>
+                  <i
+                    class="fa-solid fa-droplet text-blue-500"
+                    style="color: #2563eb"
+                  ></i>
+                </div>
+                <p class="macro-desc">High</p>
+              </div>
+
+              <div class="macro-card">
+                <span class="macro-label">Wind</span>
+                <div class="macro-value-row">
+                  <h2>12 <span class="small-unit">km/h</span></h2>
+                  <i
+                    class="fa-solid fa-wind text-slate-400"
+                    style="color: #94a3b8"
+                  ></i>
+                </div>
+                <p class="macro-desc">NW - Light</p>
+              </div>
+
+              <div class="macro-card">
+                <span class="macro-label">Visibility</span>
+                <div class="macro-value-row">
+                  <h2>10k <span class="small-unit">m</span></h2>
+                  <i
+                    class="fa-solid fa-eye text-teal-600"
+                    style="color: #0d9488"
+                  ></i>
+                </div>
+                <p class="macro-desc">Clear</p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div></app-navigation
+    >
+
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/components/sidebar.js" defer></script>
+    <script src="js/components/bar.js" defer></script>
+  </body>
+</html>

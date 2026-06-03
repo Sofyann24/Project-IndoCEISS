@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Dashboard - Batam EcoPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bar.css" />
+  </head>
+  <body>
+    <app-navigation active-page="dashboard">
+      <div class="dashboard-wrapper">
+        <div class="dash-body">
+          <main class="dash-content">
+            <section class="eco-pulse-card reveal">
+              <div class="pulse-main">
+                <span class="live-badge">LIVE UPDATES</span>
+                <h2>Batam EcoPulse</h2>
+                <p class="ai-text">
+                  <strong>AI Summary:</strong> Overall conditions are favorable
+                  today. Air quality remains 'Good' across most districts, with
+                  minor congestion reported near Nagoya Hill. Humidity is high,
+                  indicative of the rainy season approach.
+                </p>
+                <button class="btn-report">Detailed Report</button>
+              </div>
+
+              <div class="pulse-widgets">
+                <div class="widget-box">
+                  <i class="fa-solid fa-temperature-half txt-orange"></i>
+                  <h3>32°</h3>
+                  <span class="widget-unit">Celsius</span>
+                </div>
+                <div class="widget-box good-aqi">
+                  <i class="fa-solid fa-wind txt-green"></i>
+                  <h3>45</h3>
+                  <span class="aqi-badge">Good AQI</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="metrics-section reveal">
+              <div class="section-title-row">
+                <h3>Environmental Metrics</h3>
+                <a href="#"
+                  >View All Data <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="m-card">
+                  <div class="m-card-header">
+                    <div class="icon-box green">
+                      <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <span>Forest Cover</span>
+                  </div>
+                  <h2>42%</h2>
+                  <p>
+                    +1.2% increase since last quarter due to massive replanting
+                    in Nongsa.
+                  </p>
+                </div>
+
+                <div class="m-card">
+                  <div class="m-card-header">
+                    <div class="icon-box blue">
+                      <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </div>
+                    <span>Emissions</span>
+                  </div>
+                  <h2>-5%</h2>
+                  <p>
+                    Reduction in industrial CO2 emissions primarily in Batu
+                    Ampar sector.
+                  </p>
+                </div>
+
+                <div class="m-card">
+                  <div class="m-card-header">
+                    <div class="icon-box yellow">
+                      <i class="fa-solid fa-solar-panel"></i>
+                    </div>
+                    <span>Renewables</span>
+                  </div>
+                  <h2>18%</h2>
+                  <p>
+                    Of city power now sourced from new solar farms near
+                    Barelang.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div class="bottom-layout-grid">
+              <section class="news-area">
+                <div class="section-title-row">
+                  <h3>Local Eco-News</h3>
+                </div>
+
+                <div class="news-item">
+                  <div
+                    class="news-img"
+                    style="
+                      background-image: url(&quot;https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=300&q=80&quot;);
+                    "
+                  ></div>
+                  <div class="news-info">
+                    <span class="tag-conservation">CONSERVATION</span>
+                    <h4>Mangrove Restoration Project Hits Milestone</h4>
+                    <p>
+                      Over 10,000 new mangrove trees have been successfully
+                      planted along the eastern coastline this...
+                    </p>
+                    <div class="news-footer">
+                      <span>2 hours ago</span>
+                      <a href="#" class="read-more"
+                        >Read More <i class="fa-solid fa-arrow-trend-up"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="news-item">
+                  <div
+                    class="news-img"
+                    style="
+                      background-image: url(&quot;https://images.unsplash.com/photo-1542362567-b07eac790abc?auto=format&fit=crop&w=300&q=80&quot;);
+                    "
+                  ></div>
+                  <div class="news-info">
+                    <span class="tag-mobility">MOBILITY</span>
+                    <h4>Electric Bus Fleet Expansion Approved</h4>
+                    <p>
+                      City council approves funding for 50 new electric buses,
+                      aiming to reduce public transit emissions to...
+                    </p>
+                    <div class="news-footer">
+                      <span>Yesterday</span>
+                      <a href="#" class="read-more"
+                        >Read More <i class="fa-solid fa-arrow-trend-up"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <aside class="ai-guide-area">
+                <div class="section-title-row">
+                  <h3>AI Conservation Guide</h3>
+                </div>
+
+                <div class="guide-box">
+                  <div class="guide-header">
+                    <i class="fa-solid fa-wand-magic-sparkles magic-ico"></i>
+                    <div>
+                      <h4>Seasonal Insight</h4>
+                      <span class="generated-tag">Generated just now</span>
+                    </div>
+                  </div>
+
+                  <p class="guide-main-text">
+                    "With the upcoming monsoon transition, humidity is rising.
+                    This is a critical time for local amphibian populations in
+                    the central forested areas. Be mindful of increased wildlife
+                    crossings on rural roads."
+                  </p>
+
+                  <div class="actionable-tips-title">ACTIONABLE TIPS</div>
+                  <ul class="action-list">
+                    <li>
+                      <i class="fa-regular fa-square-check"></i> Clear drainage
+                      around your property to prevent stagnant water.
+                    </li>
+                    <li>
+                      <i class="fa-regular fa-square-check"></i> Report unusual
+                      wildlife sightings via the community app.
+                    </li>
+                    <li>
+                      <i class="fa-regular fa-square-check"></i> Reduce speeds
+                      in designated green zones at night.
+                    </li>
+                  </ul>
+
+                  <button class="btn-ask-ai">Ask AI Assistant</button>
+                </div>
+              </aside>
+            </div>
+          </main>
+        </div>
+
+        <portal-footer></portal-footer></div
+    ></app-navigation>
+
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/components/sidebar.js" defer></script>
+    <script src="js/components/navbar.js" defer></script>
+    <script src="js/components/bar.js" defer></script>
+  </body>
+</html>

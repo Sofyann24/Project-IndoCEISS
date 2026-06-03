@@ -1,0 +1,753 @@
+/* ======================================================= */
+/* LAYOUT KHUSUS FEATURE PAGE: LIVE TRAFFIC MAP & CLIMATE   */
+/* ======================================================= */
+
+/* --- SYSTEM TRAFFIC MAP STYLE --- */
+.map-workspace {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 62px); /* Mengunci tinggi workspace agar pas layar */
+}
+
+.map-mockup-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Floating Kiri Panel - Transparan blur elegan overlay peta */
+.floating-left-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 320px;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.panel-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.card-header-row h4 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emissions-metric .metric-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #64748b;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.emissions-metric h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 4px 0;
+}
+
+.emissions-metric h2 .unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.sub-stat {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.mini-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.mini-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.mini-box .m-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  display: block;
+}
+
+.mini-box .m-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+  margin: 2px 0;
+}
+
+.mini-box .m-status {
+  font-size: 0.6rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* COMPONENT 4: SCROLL REVEAL EFFECT (Animasi Muncul) */
+.reveal {
+  position: relative;
+  transform: translateY(30px);
+  opacity: 0;
+  transition:
+    transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 0.6s ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Congestion list styling */
+.congestion-list {
+  list-style: none;
+}
+
+.congestion-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.congestion-list li:last-child {
+  border-bottom: none;
+}
+
+.congestion-list .road-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.congestion-list .road-status-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  float: right;
+  margin-top: -18px;
+}
+
+.congestion-list .road-desc {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.panel-p-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #64748b;
+  margin-bottom: 12px;
+}
+
+.alt-transport-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f8fafc;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.alt-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: var(--primary-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.alt-details h5 {
+  font-size: 0.78rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.badge-transit {
+  background-color: #e2e8f0;
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.alt-details p {
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+/* Simulasi Map Pin Point */
+.map-pin {
+  position: absolute;
+  color: #ef4444;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.map-pin span {
+  background-color: #034c43;
+  color: #ffffff;
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pin-nongsa {
+  top: 25%;
+  left: 65%;
+  color: #059669;
+}
+.pin-turi {
+  top: 22%;
+  left: 75%;
+  color: #059669;
+}
+.pin-nagoya {
+  top: 40%;
+  left: 45%;
+}
+.pin-batamcenter {
+  top: 55%;
+  left: 52%;
+  color: #d97706;
+}
+
+/* Map Right Controls */
+.map-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+.btn-cctv {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.control-zoom-box {
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  align-self: flex-end;
+}
+
+/* Map Right Bottom Legend */
+.map-legend-card {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.map-legend-card h4 {
+  font-size: 0.78rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.legend-item {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.line-status {
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.line-status.green {
+  background-color: #16a34a;
+}
+.line-status.yellow {
+  background-color: #ca8a04;
+}
+.line-status.red {
+  background-color: #dc2626;
+}
+.line-status.dashed {
+  border-top: 2px dashed #0284c7;
+  height: 0;
+}
+
+.btn-report-incident {
+  width: 100%;
+  background-color: #fcd462;
+  color: #2d2000;
+  border: none;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sidebar-status-pill {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #16a34a;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #16a34a;
+}
+
+/* --- SYSTEM ATMOSFER CLIMATE STYLE --- */
+.climate-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.c-header-text h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.c-header-text p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.c-header-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-outline-action {
+  background-color: transparent;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-yellow-action {
+  background-color: #fcd462;
+  border: none;
+  color: #2d2000;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Climate Split Grid Layout */
+.climate-split-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.weather-radar-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.radar-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.radar-card-title h4 {
+  font-size: 0.9rem;
+  color: #0f172a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radar-status-tag {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.radar-map-frame {
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lingkaran Deteksi Pulse Radar */
+.radar-pulse-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(22, 163, 74, 0.4);
+  background-color: rgba(22, 163, 74, 0.05);
+  border-radius: 50%;
+}
+
+.radar-pulse-circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border: 1px dashed rgba(22, 163, 74, 0.3);
+  border-radius: 50%;
+}
+
+.radar-marker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #16a34a;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #16a34a;
+}
+
+.radar-marker.marker-1 {
+  top: 40%;
+  left: 48%;
+}
+.radar-marker.marker-2 {
+  top: 55%;
+  left: 58%;
+  background-color: #2563eb;
+  box-shadow: 0 0 10px #2563eb;
+}
+
+.radar-center-text {
+  position: absolute;
+  top: 44%;
+  left: 47%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.radar-map-controls {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.radar-map-controls button {
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.climate-right-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.climate-widget-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.climate-widget-box h4 {
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 0.3px;
+}
+
+/* Grafik Batang Sederhana */
+.chart-bars-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 80px;
+  padding: 0 10px;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar-fill {
+  width: 100%;
+  background-color: #034c43;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.bar-label {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 6px;
+  position: absolute;
+  bottom: -18px;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+  position: absolute;
+  right: 35px;
+  margin-top: -80px;
+  font-size: 0.6rem;
+  color: #94a3b8;
+  text-align: right;
+}
+
+/* Route Probability Form */
+.route-calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-route-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-route-group i {
+  position: absolute;
+  left: 12px;
+  font-size: 0.8rem;
+}
+
+.input-route-group i.src-ico {
+  color: #64748b;
+}
+.input-route-group i.dest-ico {
+  color: #ef4444;
+}
+
+.input-route-group input {
+  width: 100%;
+  padding: 8px 12px 8px 34px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  outline: none;
+  color: #334155;
+}
+
+.btn-calculate-route {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 5 Kolom Parameter Atmosfer Makro */
+.climate-macro-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.macro-card {
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+.macro-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+  display: block;
+}
+
+.macro-value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 4px 0;
+}
+
+.macro-value-row h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.macro-value-row h2 .small-unit {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.macro-value-row i {
+  font-size: 1.1rem;
+}
+
+.macro-desc {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* RESPONSIVE BREAKPOINT FEATURE PAGE */
+@media (max-width: 1024px) {
+  .climate-split-grid {
+    grid-template-columns: 1fr;
+  }
+  .climate-macro-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .climate-macro-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .floating-left-panel {
+    width: calc(100% - 40px);
+  }
+  .map-legend-card {
+    display: none;
+  }
+}

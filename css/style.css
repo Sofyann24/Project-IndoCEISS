@@ -1,0 +1,66 @@
+/* ======================================================= */
+/* LAYOUT SHELL & GLOBAL CORE SPECIFIC STYLING             */
+/* ======================================================= */
+
+/* Root variables penampung palet warna utama maket */
+:root {
+  --primary-teal: #034c43;
+  --accent-yellow: #fdd061;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --text-muted: #64748b;
+}
+
+/* Global Reset untuk Link di dalam Navigasi/Sidebar */
+.dashboard-wrapper a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* KONTENER UTAMA (LEBAR & TINGGI PENUH) */
+.dashboard-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* WORKSPACE SPLIT LAYOUT (SIDEBAR + MAIN CONTENT) */
+.dash-body {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* PEMBUNGKUS SIDEBAR KIRI */
+.dash-sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--border-color);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PEMBUNGKUS KONTEN TENGAH (WORKSPACE UTAMA) */
+.dash-content {
+  flex: 1;
+  padding: 35px 40px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* BREAKPOINT RESPONSIVE UNTUK STRUKTUR CANGKANG */
+@media (max-width: 992px) {
+  /* Sembunyikan sidebar di layar tablet/mobile sesuai blueprint maket */
+  .dash-sidebar {
+    display: none;
+  }
+  
+  .dash-content {
+    padding: 20px;
+  }
+}

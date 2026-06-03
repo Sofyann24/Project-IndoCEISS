@@ -1,0 +1,333 @@
+/* Background Biru Muda Sesuai Maket Gambar */
+.register-page-bg {
+    background-color: #e8f4fa !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px 100px 20px; /* Jarak bawah ditambah biar ga tabrakan ama footer */
+    position: relative;
+}
+
+/* Kotak Pendaftaran dengan Border Dashed */
+.register-dashed-box {
+    background: var(--white);
+    padding: 35px 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 440px;
+    border: 1px dashed #3b82f6; /* Efek garis putus-putus seleksi */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.auth-header h2 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.auth-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* Form Layouting & Positioning Icon */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    color: #475569;
+}
+
+/* Kontainer Pembungkus Icon + Input */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.toggle-password-icon {
+    position: absolute;
+    right: 12px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.input-with-icon input, 
+.input-with-icon select {
+    width: 100%;
+    padding: 10px 12px 10px 38px; /* Padding kiri sengaja besar agar teks tidak menumpuk di icon */
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #334155;
+    background-color: var(--white);
+    outline: none;
+}
+
+/* Khusus untuk input password, kasih space kanan juga buat icon mata */
+.input-with-icon input[type="password"] {
+    padding-right: 38px;
+}
+
+.input-with-icon input:focus, 
+.input-with-icon select:focus {
+    border-color: #3b82f6;
+}
+
+/* Tombol Daftar Sekarang Lebar Penuh Warna Kuning */
+.btn-auth-submit-full {
+    width: 100%;
+    background-color: #fcd462;
+    color: #2d2000;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-auth-submit-full:hover {
+    background-color: #fbc731;
+}
+
+.auth-footer-text {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    color: var(--text-muted);
+}
+
+.auth-footer-text a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* STYLING BOTTOM FOOTER SESUAI MAKET BARU */
+.register-page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-left h4 {
+    font-size: 0.85rem;
+    color: #334155;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.footer-left p {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.footer-right a {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.footer-right a:hover {
+    color: #334155;
+    text-decoration: underline;
+}
+
+/* Responsif Layar Kecil / HP */
+@media (max-width: 640px) {
+    .register-page-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .footer-right a {
+        margin: 0 8px;
+    }
+}
+
+
+/* ======================================================= */
+/* RE-STYLE COMPONENT HALAMAN LOGIN (SINKRON DENGAN REGISTER) */
+/* ======================================================= */
+
+/* Kotak Utama Login */
+.login-clean-box {
+    background: var(--white);
+    padding: 35px 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 440px; /* Lebar disamakan persis dengan register dashed box */
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(148, 163, 184, 0.12); /* Bayangan soft elegan */
+}
+
+/* Header & Logo Area */
+.login-logo-header {
+    text-align: center;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-icon-box {
+    width: 46px;
+    height: 46px;
+    background-color: var(--primary-teal); /* Hijau Teal gelap */
+    color: var(--accent-yellow);  /* Daun Kuning Emas */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.login-logo-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+/* Badge Secure Login */
+.secure-badge-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.secure-login-tag {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Row Khusus Atas Input Password */
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.label-row label {
+    margin-bottom: 0 !important; /* Reset margin bawaan */
+}
+
+.forgot-pass {
+    font-size: 0.72rem;
+    color: #0284c7; /* Link biru tipis */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-pass:hover {
+    text-decoration: underline;
+}
+
+/* Pembatas Garis OR CONTINUE WITH */
+.login-divider {
+    margin: 22px 0;
+    position: relative;
+    text-align: center;
+}
+
+.login-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #e2e8f0;
+    z-index: 1;
+}
+
+.login-divider span {
+    background: #ffffff;
+    padding: 0 12px;
+    position: relative;
+    z-index: 2;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+}
+
+/* Google OAuth Button */
+.oauth-container-row {
+    margin-top: 5px;
+}
+
+.btn-google-oauth {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 11px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-google-oauth:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.btn-google-oauth img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}

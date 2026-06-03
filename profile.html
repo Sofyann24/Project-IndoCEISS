@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Pengguna - Batam EcoPortal</title>
+    <!-- Font & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/bar.css" />
+
+    <!-- HANYA PANGGIL FOOTER DI SINI (Sidebar & Navbar lama dihapus agar tidak bentrok) -->
+    <script src="js/components/footer.js" defer></script>
+
+    <style>
+      /* =======================================================
+         CSS TAMBAHAN BIAR LAYOUT FORM FORM LO RAPI DI HP
+         ======================================================= */
+      
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f8fafc;">
+
+    <!-- KOMPONEN NAVIGASI UTAMA GABUNGAN -->
+    <app-navigation active-page="settings">
+      <div class="profile-dashboard-wrapper">
+        <div class="profile-main-layout">
+          
+          <!-- KONTEN UTAMA -->
+          <main class="profile-content-area reveal" style="padding: 16px; box-sizing: border-box;">
+            <div class="profile-header-title">
+              <h2>Profil Pengguna</h2>
+              <p>
+                Kelola informasi pribadi dan pengaturan akun Anda untuk
+                pengalaman Batam EcoPortal yang lebih baik.
+              </p>
+            </div>
+
+            <!-- KARTU UTAMA: FOTO PROFIL -->
+            <div class="profile-hero-card">
+              <div class="hero-avatar-container">
+                <img src="images/profile.png" alt="Putri Do Young" />
+                <div class="avatar-edit-badge">
+                  <i class="fa-solid fa-camera"></i>
+                </div>
+              </div>
+              <div class="hero-user-details">
+                <h3>Putri Do Young</h3>
+                <p class="txt-sub-resident">
+                  Resident of Batam Center • Member since 2022
+                </p>
+                <div class="hero-action-buttons">
+                  <button class="btn-hero-action btn-gold-outline">
+                    <i class="fa-solid fa-pen"></i> Ganti Foto
+                  </button>
+                  <button class="btn-hero-action btn-blue-light">
+                    <i class="fa-solid fa-circle-check"></i> Akun Terverifikasi
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- GRID FORM (Otomatis Menjadi 1 Kolom di HP berkat CSS di atas) -->
+            <div class="profile-form-grid">
+              
+              <!-- KARTU 1: INFORMASI PRIBADI -->
+              <div class="form-section-card">
+                <div class="card-section-title">
+                  <i class="fa-regular fa-user"></i>
+                  <h3>Informasi Pribadi</h3>
+                </div>
+                <div class="form-group-item">
+                  <label>Nama Lengkap</label>
+                  <input type="text" value="Ahmad Ibrahim" />
+                </div>
+                <div class="form-group-item">
+                  <label>Tanggal Lahir</label>
+                  <input type="text" value="05/15/1985" />
+                </div>
+                <div class="form-group-item">
+                  <label>Jenis Kelamin</label>
+                  <div class="custom-select-wrapper">
+                    <select>
+                      <option>Laki-laki</option>
+                      <option>Perempuan</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KARTU 2: INFORMASI KONTAK -->
+              <div class="form-section-card">
+                <div class="card-section-title">
+                  <i class="fa-regular fa-address-book"></i>
+                  <h3>Informasi Kontak</h3>
+                </div>
+                <div class="form-group-item">
+                  <label>Alamat Email</label>
+                  <input type="email" value="ahmad.ibrahim@example.id" />
+                </div>
+                <div class="form-group-item">
+                  <label>Nomor WhatsApp / Telepon</label>
+                  <input type="text" value="+62 812 3456 7890" />
+                </div>
+                <div class="form-group-item">
+                  <label>Lingkungan Domisili (Batam)</label>
+                  <div class="custom-select-wrapper">
+                    <select>
+                      <option>Batam Center</option>
+                      <option>Nagoya</option>
+                      <option>Sekupang</option>
+                      <option>Batu Aji</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KARTU 3: PENGATURAN AKUN -->
+              <div class="form-section-card">
+                <div class="card-section-title">
+                  <i class="fa-solid fa-sliders"></i>
+                  <h3>Pengaturan Akun</h3>
+                </div>
+
+                <div class="toggle-control-item">
+                  <div class="toggle-txt-label">
+                    <h4>Notifikasi Email</h4>
+                    <p>Laporan kualitas udara mingguan</p>
+                  </div>
+                  <label class="switch-container">
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="toggle-control-item">
+                  <div class="toggle-txt-label">
+                    <h4>Peringatan SMS (Insiden)</h4>
+                    <p>Info kemacetan & darurat banjir</p>
+                  </div>
+                  <label class="switch-container">
+                    <input type="checkbox" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="form-group-item" style="margin-top: 15px">
+                  <label>Preferensi Bahasa</label>
+                  <div class="custom-select-wrapper">
+                    <select>
+                      <option>Bahasa Indonesia</option>
+                      <option>English</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KARTU 4: KEAMANAN -->
+              <div class="form-section-card">
+                <div class="card-section-title">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <h3>Keamanan</h3>
+                </div>
+                <p class="txt-security-tip">
+                  Pastikan akun Anda tetap aman dengan memperbarui kata sandi
+                  secara berkala.
+                </p>
+
+                <div class="security-action-row-btn">
+                  <div class="sec-left-content">
+                    <i class="fa-solid fa-key"></i> <span>Ubah Kata Sandi</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right arrow-go"></i>
+                </div>
+
+                <div class="security-action-row-btn">
+                  <div class="sec-left-content">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>Otentikasi Dua Faktor (2FA)</span>
+                  </div>
+                  <div class="sec-right-badge">
+                    <span class="badge-non-active">NONAKTIF</span>
+                    <i class="fa-solid fa-chevron-right arrow-go"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FOOTER BUTTONS AKSI SIMPAN/BATAL -->
+            <div class="profile-form-footer-actions" style="margin-top: 24px;">
+              <button class="btn-action-cancel">Batal</button>
+              <button class="btn-action-submit">Simpan Perubahan</button>
+            </div>
+          </main>
+
+        </div>
+
+        <!-- FOOTER HALAMAN -->
+        <footer class="profile-portal-footer">
+          <div class="footer-left-copyright">
+            © 2026 Batam EcoPortal. All rights reserved.
+          </div>
+          <div class="footer-right-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </footer>
+      </div>
+    </app-navigation>
+
+    <!-- SCRIPT UTAMA DI LINK PALING BAWAH -->
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/bar.js"></script>
+  </body>
+</html>

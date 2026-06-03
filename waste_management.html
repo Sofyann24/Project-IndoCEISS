@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengelolaan Sampah - Batam EcoPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/waste_management.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bar.css" />
+  </head>
+  <body>
+    <app-navigation active-page="waste"
+      ><div class="dashboard-wrapper">
+        <div class="dash-body">
+          <!-- MAIN CONTENT AREA (Full Width Minimalist sesuai maket kiri) -->
+          <main class="dash-content full-width-content reveal">
+            <!-- HEADER UTAMA -->
+            <div class="waste-header">
+              <h2>Pengelolaan Sampah</h2>
+              <p>
+                Maximize your local environmental impact through smart sorting,
+                tracking, and reporting.
+              </p>
+            </div>
+
+            <!-- SEARCH & FILTER BAR -->
+            <div class="waste-search-bar">
+              <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="text"
+                  placeholder="Cari lokasi Bank Sampah terdekat..."
+                />
+              </div>
+              <div class="filter-pills">
+                <span class="pill-label">Categories:</span>
+                <button class="pill-btn active">
+                  <i class="fa-solid fa-recycle"></i> Plastik
+                </button>
+                <button class="pill-btn">
+                  <i class="fa-solid fa-box"></i> Anorganik
+                </button>
+                <button class="pill-btn">
+                  <i class="fa-solid fa-battery-quarter"></i> B3
+                </button>
+              </div>
+            </div>
+
+            <!-- MAIN GRID: MAP KIRI & SIDEBAR PANEL KANAN -->
+            <div class="waste-main-grid">
+              <!-- KIRI: BANK SAMPAH LOCATIONS MAP -->
+              <div class="waste-map-container">
+                <div class="map-container-header">
+                  <h4>
+                    <i class="fa-solid fa-map-pin"></i> Bank Sampah Locations
+                  </h4>
+                  <button class="btn-map-filter">
+                    <i class="fa-solid fa-sliders"></i>
+                  </button>
+                </div>
+                <!-- Tempat Render Map Interaktif Leaflet -->
+                <div
+                  id="map"
+                  style="width: 100%; height: 350px; border-radius: 8px"
+                ></div>
+              </div>
+
+              <!-- KANAN: SIDEBAR WIDGETS -->
+              <div class="waste-sidebar-panel">
+                <!-- WIDGET 1: WASTE-TO-IMPACT CALCULATOR -->
+                <div class="waste-widget-card impact-card">
+                  <h4>
+                    <i class="fa-solid fa-calculator"></i> Waste-to-Impact
+                  </h4>
+                  <p class="widget-sub">
+                    Hitung kontribusi reduksi emisi karbonmu
+                  </p>
+                  <div class="calculator-row">
+                    <input type="number" value="12" placeholder="Berat (kg)" />
+                    <button class="btn-calculate-waste">Calculate</button>
+                  </div>
+                  <div class="impact-result">
+                    <span class="result-label">SAVINGS ESTIMATE</span>
+                    <h3>15.4 <span class="unit">kg CO₂e</span></h3>
+                  </div>
+                </div>
+
+                <!-- WIDGET 2: PICKUP SCHEDULE OVERVIEW -->
+                <div class="waste-widget-card schedule-preview-card">
+                  <h4>
+                    <i class="fa-solid fa-calendar-day"></i> Pickup Schedule
+                  </h4>
+                  <ul class="preview-schedule-list">
+                    <li onclick="window.location.href = 'schedule.html'">
+                      <div class="sch-info">
+                        <h5>Batam Kota</h5>
+                        <p>Plastik, Kertas, Logam</p>
+                      </div>
+                      <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                    <li onclick="window.location.href = 'schedule.html'">
+                      <div class="sch-info">
+                        <h5>Lubuk Baja</h5>
+                        <p>Organik, Residu, B3</p>
+                      </div>
+                      <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                  </ul>
+                  <a href="calender.html" class="btn-view-full-calendar"
+                    >View Full Calendar</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTTOM REPORT BANNER -->
+            <div class="report-illegal-banner">
+              <div class="report-icon-text">
+                <div class="warn-icon-circle">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="warn-text">
+                  <h5>Report Illegal Trash Pile</h5>
+                  <p>
+                    Help keep our city clean. Upload a photo and location of
+                    unmanaged waste for municipal action.
+                  </p>
+                </div>
+              </div>
+              <div class="report-action-area">
+                <div class="upload-stub">
+                  <i class="fa-solid fa-camera"></i>
+                </div>
+                <button class="btn-submit-report">
+                  SUBMIT REPORT <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <!-- FOOTER SEPERTI DI MAKET KIRI -->
+        <footer class="eco-footer">
+          <div class="footer-left">
+            <strong>Batam EcoPortal</strong>
+            <p>
+              © 2026 Batam City Government. Monitoring environment through open
+              data transparency.
+            </p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Environmental Policy</a>
+            <a href="#">Public API</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Login</a>
+          </div>
+        </footer>
+      </div></app-navigation
+    >
+
+    <!-- Script Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/map.js" defer></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/components/bar.js" defer></script>
+  </body>
+</html>

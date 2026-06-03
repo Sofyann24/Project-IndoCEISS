@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Traffic Map - Batam EcoPortal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/traffic.css" />
+    <link rel="stylesheet" href="css/bar.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <app-navigation active-page="traffic">
+      <div class="map-root-container">
+        <div class="map-inner-layout">
+          <main class="map-view-workspace">
+            <div id="map" style="width: 100%; height: 100%; z-index: 1"></div>
+
+            <div
+              class="floating-panel panel-eco-impact reveal"
+              style="top: 20px; left: 20px; z-index: 5"
+            >
+              <div class="panel-header">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <h4>Eco-Impact Live</h4>
+              </div>
+
+              <div class="stat-box-co2">
+                <span class="lbl-box">ESTIMATED CO2 FROM TRAFFIC</span>
+                <div class="val-co2">1,204 <span class="unit">kg/hr</span></div>
+                <span class="trend-txt text-red">
+                  <i class="fa-solid fa-arrow-trend-up"></i> +12% vs Hourly Avg
+                </span>
+              </div>
+
+              <div class="stat-mini-grid">
+                <div class="mini-box">
+                  <span class="lbl-box">CO2/Veh Avg</span>
+                  <div class="val-mini text-gold">
+                    68 <span class="unit">g/km-veh</span>
+                  </div>
+                </div>
+                <div class="mini-box">
+                  <span class="lbl-box">Active Commuters</span>
+                  <div class="val-mini text-blue">
+                    4.2k <span class="unit">(Bike & Walk)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="congested-routes-section">
+                <h5>JALUR TERPADAT SAAT INI</h5>
+                <div class="route-row">
+                  <div class="route-info">
+                    <span class="route-name">Jl. Ahmad Yani</span>
+                    <span class="route-sub">
+                      <i class="fa-solid fa-triangle-exclamation"></i> Terhambat
+                      • 15 mnt
+                    </span>
+                  </div>
+                  <span class="route-speed text-red">15 km/jam</span>
+                </div>
+                <div class="route-row">
+                  <div class="route-info">
+                    <span class="route-name">Simpang Kepri</span>
+                    <span class="route-sub">
+                      <i class="fa-solid fa-triangle-exclamation"></i> Terhambat
+                      • 22 mnt
+                    </span>
+                  </div>
+                  <span class="route-speed text-red">8 km/jam</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="floating-panel panel-green-alt reveal"
+              style="bottom: 20px; left: 20px; z-index: 5"
+            >
+              <div class="panel-header">
+                <i class="fa-solid fa-seedling"></i>
+                <h4>Green Alternatives</h4>
+                <i class="fa-solid fa-triangle-exclamation icon-right-tip"></i>
+              </div>
+              <p class="panel-desc-txt">
+                Traffic is heavy on primary routes. Consider these
+                lower-emission alternatives.
+              </p>
+
+              <div class="alt-transport-card">
+                <div class="alt-left">
+                  <span class="icon-round bg-light-green">
+                    <i class="fa-solid fa-bus"></i>
+                  </span>
+                  <div>
+                    <h5>Trans Batam (L1)</h5>
+                    <p class="text-green">
+                      <i class="fa-solid fa-clock"></i> Next 5 mins • Every 15
+                      mins
+                    </p>
+                  </div>
+                </div>
+                <span class="badge-efficiency">78% Eff</span>
+              </div>
+
+              <div class="alt-transport-card">
+                <div class="alt-left">
+                  <span class="icon-round bg-light-blue">
+                    <i class="fa-solid fa-bicycle"></i>
+                  </span>
+                  <div>
+                    <h5>Coastal Bike Path</h5>
+                    <p class="text-blue">
+                      <i class="fa-solid fa-wind"></i> Zero emissions
+                    </p>
+                  </div>
+                </div>
+                <span class="badge-efficiency">25 Mins</span>
+              </div>
+            </div>
+
+            <div
+              class="floating-controls-column"
+              style="top: 20px; right: 20px; z-index: 5"
+            >
+              <a href="cctv.html"
+                ><button class="btn-ctrl btn-cctv">
+                  <i class="fa-solid fa-video"></i> CCTV
+                </button></a
+              >
+              <button class="btn-ctrl-square">
+                <i class="fa-solid fa-layer-group"></i>
+              </button>
+              <button class="btn-ctrl-square active-btn">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
+              <div class="zoom-group-ctrl">
+                <button id="custom-zoom-in" class="btn-zoom-item">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button id="custom-zoom-out" class="btn-zoom-item">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="floating-panel panel-legend"
+              style="bottom: 85px; right: 20px; z-index: 5"
+            >
+              <h5>Legenda Jalur</h5>
+              <ul class="legend-list">
+                <li>
+                  <span class="line-indicator bg-green"></span> Lancar (Emisi
+                  Rendah)
+                </li>
+                <li>
+                  <span class="line-indicator bg-orange"></span> Padat (Emisi
+                  Sedang)
+                </li>
+                <li>
+                  <span class="line-indicator bg-red"></span> Macet (Emisi
+                  Tinggi)
+                </li>
+              </ul>
+              <div class="legend-divider"></div>
+              <div class="legend-footer-item">
+                <span class="circle-indicator border-teal"></span> Zona
+                Prioritas Eco
+              </div>
+            </div>
+            <a href="report-incident.html"
+              ><button
+                class="btn-floating-report"
+                style="bottom: 20px; right: 20px; z-index: 5"
+              >
+                <i class="fa-solid fa-triangle-exclamation"></i> Report Incident
+              </button></a
+            >
+          </main>
+        </div>
+      </div></app-navigation
+    >
+
+    <script src="js/reveal-content.js"></script>
+    <script src="js/components/map.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <script src="js/components/navbar.js" defer></script>
+    <script src="js/components/footer.js" defer></script>
+    <script src="js/components/sidebar.js" defer></script>
+    <script src="js/components/bar.js" defer></script>
+  </body>
+</html>

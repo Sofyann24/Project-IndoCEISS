@@ -1,0 +1,641 @@
+/* ======================================================= */
+/* LIVE TRAFFIC MAP SYSTEM STYLES                          */
+/* ======================================================= */
+
+.map-root-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.map-inner-layout {
+  display: flex;
+  flex: 1;
+  background-color: #f8fafc;
+  height: calc(
+    100vh - 60px
+  ); /* Memastikan layout pas setelah dipotong topbar */
+}
+
+/* SIDEBAR KIRI FIXES */
+.dash-sidebar {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+/* STATUS BAR DI BAWAH SIDEBAR */
+.sidebar-status-pill {
+  margin-top: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  margin-block: 15px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* ANIMATION INTERFACES: SCROLL REVEAL EFFECT FIX */
+/* Menggunakan opacity 1 sebagai default agar panel langsung muncul jika JS animasi belum ke-trigger */
+.reveal {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+}
+
+/* ARSITEKTUR KANAN UTAMA (MAP CANVASS) */
+.map-view-workspace {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* LEAFLET CONTAINER TARGET */
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Peta di paling bawah */
+  background-color: #f4f5f7;
+}
+
+/* ======================================================= */
+/* KUSTOM INTERACTIVE PIN MAP (LEAFLET COMPATIBLE)         */
+/* ======================================================= */
+.leaflet-custom-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.map-floating-pin {
+  background-color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.map-floating-pin i {
+  font-size: 0.85rem;
+}
+/* Utility warna icon marker */
+.text-green {
+  color: #10b981;
+}
+.text-pink {
+  color: #db2777;
+}
+.text-red {
+  color: #ef4444;
+}
+.text-blue {
+  color: #3b82f6;
+}
+.text-orange {
+  color: #f97316;
+}
+
+/* ======================================================= */
+/* LAYOUT DASAR FLOATING CARD OVER MAP                     */
+/* ======================================================= */
+.floating-panel {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 5; /* Di atas map layer */
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #034c43;
+  margin-bottom: 12px;
+}
+.panel-header h4 {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+.icon-right-tip {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* DATA CO2 PANEL (KIRI ATAS) */
+.panel-eco-impact {
+  width: 300px;
+}
+.stat-box-co2 {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.lbl-box {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  display: block;
+}
+.val-co2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #dc2626;
+  margin: 2px 0;
+}
+.val-co2 .unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+.trend-txt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.text-red {
+  color: #dc2626;
+}
+.text-green {
+  color: #16a34a;
+}
+.text-blue {
+  color: #2563eb;
+}
+.text-gold {
+  color: #d97706;
+}
+
+.stat-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.mini-box {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px;
+}
+.val-mini {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2px;
+}
+.val-mini .unit {
+  font-size: 0.6rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* JALUR TERPADAT LIST */
+.congested-routes-section h5 {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #64748b;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+.route-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.route-row:last-of-type {
+  border-bottom: none;
+}
+.route-info {
+  display: flex;
+  flex-direction: column;
+}
+.route-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.route-sub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+.route-speed {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* PANEL GREEN ALTERNATIVE (KIRI BAWAH) */
+.panel-green-alt {
+  width: 300px;
+}
+.panel-desc-txt {
+  font-size: 0.72rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+.alt-transport-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.alt-transport-card:last-of-type {
+  margin-bottom: 0;
+}
+.alt-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-round {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+.bg-light-green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+.bg-light-blue {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.alt-left h5 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+.alt-left p {
+  font-size: 0.65rem;
+  margin: 2px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.badge-efficiency {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* FLOATING NAVIGATION CONTROLS RIGHT (KANAN ATAS) */
+.floating-controls-column {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  z-index: 5;
+}
+.btn-ctrl {
+  background-color: #991b1b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s;
+}
+.btn-ctrl:hover {
+  background-color: #7f1d1d;
+}
+.btn-ctrl-square {
+  width: 34px;
+  height: 34px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-ctrl-square.active-btn {
+  color: #10b981;
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.zoom-group-ctrl {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-zoom-item {
+  width: 34px;
+  height: 34px;
+  background: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.btn-zoom-item:hover {
+  background-color: #f8fafc;
+}
+.btn-zoom-item:first-of-type {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* LEGEND PANEL RIGHT BOTTOM (KANAN BAWAH) */
+.panel-legend {
+  width: 200px;
+}
+.panel-legend h5 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #475569;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.3px;
+}
+.legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.legend-list li {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.line-indicator {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.bg-green {
+  background-color: #10b981;
+}
+.bg-orange {
+  background-color: #f97316;
+}
+.bg-red {
+  background-color: #ef4444;
+}
+
+.legend-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 10px 0;
+}
+.legend-footer-item {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.circle-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.border-teal {
+  border: 2px solid #034c43;
+  background-color: rgba(3, 76, 67, 0.15);
+}
+
+/* TOMBOL FLOATING LAPORKAN INSIDEN */
+.btn-floating-report {
+  position: absolute;
+  background-color: #fef08a;
+  color: #854d0e;
+  border: 1px solid #ca8a04;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(133, 77, 14, 0.15);
+  z-index: 5;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
+}
+.btn-floating-report:hover {
+  background-color: #fef08a;
+  transform: scale(1.02);
+}
+.btn-floating-report:active {
+  transform: scale(0.98);
+}
+
+.leaflet-control-attribution {
+  font-size: 0.65rem !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .map-root-container,
+  .map-inner-layout,
+  app-navigation {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .map-view-workspace {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    background-color: #ffffff !important;
+  }
+
+  #map {
+    width: 100% !important;
+    height: 48vh !important;
+    position: relative !important;
+    order: 1 !important;
+  }
+
+  .floating-controls-column {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 500 !important;
+    transform: scale(0.85) !important;
+  }
+
+  .panel-legend {
+    position: absolute !important;
+    bottom: calc(52vh + 12px) !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: auto !important;
+    top: auto !important;
+    width: 155px !important;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+    z-index: 500 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .panel-legend h5 {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
+  }
+  .legend-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+  }
+  .legend-list li {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .map-view-workspace > a:has(.btn-floating-report),
+  .map-view-workspace > a {
+    position: absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    display: inline-block !important;
+    z-index: 500 !important;
+  }
+
+  .btn-floating-report {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    left: auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    background-color: #ffd43b !important;
+    color: #212529 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
+  }
+
+  .panel-eco-impact {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    order: 2 !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  .panel-green-alt {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    order: 3 !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}

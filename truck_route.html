@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Route - Batam EcoPortal</title>
+    <!-- Font & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/truck_route.css">
+</head>
+<body>
+
+    <div class="fleet-dashboard-wrapper">
+        
+        <!-- SIDEBAR KIRI (FULL HEIGHT SIFATNYA SESUAI MAKET) -->
+        <aside class="fleet-sidebar">
+            <div class="fleet-brand-section">
+                <h1 class="brand-title-green">Batam EcoPortal</h1>
+                <div class="sub-brand-info">
+                    <h4>Fleet Control</h4>
+                    <p>Monitoring & Operation</p>
+                </div>
+            </div>
+
+            <ul class="fleet-menu-links">
+                <li><i class="fa-solid fa-chart-pie"></i> Dashboard</li>
+                <li class="active"><i class="fa-solid fa-truck-moving"></i> Truck Tracking</li>
+            </ul>
+
+            <div class="fleet-sidebar-bottom">
+                <button class="btn-emergency-alert">
+                    <i class="fa-solid fa-phone-flip"></i> Emergency Alert
+                </button>
+                <ul class="fleet-sub-menu">
+                    <li><i class="fa-regular fa-circle-question"></i> Support</li>
+                    <li><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- AREA KONTEN UTAMA (DI DALAM KOTAK BIRU MAKET) -->
+        <div class="fleet-main-content">
+            
+            <!-- SUB-HEADER ATAS (NAV BAR KECIL) -->
+            <header class="fleet-top-mini-nav">
+                <div class="mini-nav-tabs">
+                    <a href="#" class="tab-link active">Rute Truk</a>
+                    <a href="#" class="tab-link">Jadwal Penjemputan</a>
+                </div>
+                <div class="dash-nav-icons">
+                <i class="fa-solid fa-magnifying-glass search-ico"></i>
+                <a href="dashboard.html" class="avatar-circle">B</a>
+            </div>
+            </header>
+
+            <!-- WORKSPACE GRID UTAMA -->
+            <div class="fleet-workspace-grid">
+                
+                <!-- PANEL TENGAH: STATUS ARMADA -->
+                <section class="fleet-status-panel">
+                    <div class="status-panel-header">
+                        <div class="status-title-row">
+                            <h3>Status Armada</h3>
+                            <button class="btn-filter-icon"><i class="fa-solid fa-sliders"></i></button>
+                        </div>
+                        <span class="live-indicator-txt"><span class="pulse-dot"></span> PELACAKAN LANGSUNG</span>
+                    </div>
+
+                    <!-- KOTAK PENCARIAN -->
+                    <div class="search-box-container">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" placeholder="Cari Zona atau Kelurahan...">
+                    </div>
+
+                    <!-- SCROLLABLE LIST ARMADA -->
+                    <div class="fleet-cards-scroll">
+                        
+                        <!-- KARTU TRUK 1 -->
+                        <div class="fleet-status-card border-left-green">
+                            <div class="card-top-meta">
+                                <div class="truck-name-info">
+                                    <i class="fa-solid fa-truck-front icon-green"></i>
+                                    <div>
+                                        <h4>Truk T1 - Batam Kota</h4>
+                                        <p>Rute: Armada Hub Timur — Nongsa</p>
+                                    </div>
+                                </div>
+                                <span class="badge-status bg-light-green text-green">OPERASIONAL</span>
+                            </div>
+                            <div class="card-bottom-progress">
+                                <div class="location-eta-row">
+                                    <p class="lbl-loc">PEMBERHENTIAN SELANJUTNYA</p>
+                                    <span class="txt-eta">ETA <span class="bold">4 Menit</span></span>
+                                </div>
+                                <h4>Jl. Raja Ali Haji</h4>
+                                <div class="fleet-progress-bar">
+                                    <div class="fill-bar bg-green" style="width: 88%;"></div>
+                                </div>
+                                <div class="progress-percent-lbl"> Penyelesaian Rute <span class="bold">88%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- KARTU TRUK 2 -->
+                        <div class="fleet-status-card border-left-yellow">
+                            <div class="card-top-meta">
+                                <div class="truck-name-info">
+                                    <i class="fa-solid fa-truck-front icon-yellow"></i>
+                                    <div>
+                                        <h4>Truk T4 - Sekupang</h4>
+                                        <p>Rute: Hub Barat — Sei Harapan</p>
+                                    </div>
+                                </div>
+                                <span class="badge-status bg-yellow text-white">KAPASITAS PENUH</span>
+                            </div>
+                            <div class="card-bottom-progress">
+                                <div class="location-eta-row">
+                                    <p class="lbl-loc">MENUJU TPA</p>
+                                    <span class="txt-eta">ETA <span class="bold">12 Menit</span></span>
+                                </div>
+                                <h4>TPA Punggur</h4>
+                                <div class="fleet-progress-bar">
+                                    <div class="fill-bar bg-yellow" style="width: 100%;"></div>
+                                </div>
+                                <div class="progress-percent-lbl"> Penyelesaian Rute <span class="bold">100%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- KARTU TRUK 3 -->
+                        <div class="fleet-status-card border-left-green">
+                            <div class="card-top-meta">
+                                <div class="truck-name-info">
+                                    <i class="fa-solid fa-truck-front icon-green"></i>
+                                    <div>
+                                        <h4>Truk T7 - Nongsa</h4>
+                                        <p>Rute: Kabil — Batu Besar</p>
+                                    </div>
+                                </div>
+                                <span class="badge-status bg-light-green text-green">OPERASIONAL</span>
+                            </div>
+                            <div class="card-bottom-progress">
+                                <div class="location-eta-row">
+                                    <p class="lbl-loc">PEMBERHENTIAN SELANJUTNYA</p>
+                                    <span class="txt-eta">ETA <span class="bold">9 Menit</span></span>
+                                </div>
+                                <h4>Perumahan Danau Indah</h4>
+                                <div class="fleet-progress-bar">
+                                    <div class="fill-bar bg-green" style="width: 45%;"></div>
+                                </div>
+                                <div class="progress-percent-lbl"> Penyelesaian Rute <span class="bold">45%</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- FOOTER DETAIL TRUK TERPILIH (ACCORDION STYLE) -->
+                    <div class="selected-truck-details-box">
+                        <div class="accordion-toggle-header">
+                            <span>Detail Truk Terpilih (T1)</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-inner-content">
+                            <div class="info-item">
+                                <span class="lbl">Jenis Sampah</span>
+                                <span class="val"><span class="dot-indicator green"></span> Organik</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="lbl">Kapasitas Muatan</span>
+                                <span class="val bold">12 / 15 Ton</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PANEL KANAN: MAPS TRACKING INTERAKTIF -->
+                <section class="fleet-map-panel">
+                    <!-- FLOATING LIVE BADGE DI ATAS PETA -->
+                    <div class="floating-map-badge">
+                        <span class="pulse-dot-red"></span> LIVE TRACKING BATAM KOTA
+                    </div>
+
+                    <!-- MAPS UI CONTROLS FLOATING -->
+                    <div class="map-zoom-controls">
+                        <button class="btn-zoom"><i class="fa-solid fa-plus"></i></button>
+                        <button class="btn-zoom"><i class="fa-solid fa-minus"></i></button>
+                        <button class="btn-zoom"><i class="fa-solid fa-layer-group"></i></button>
+                        <button class="btn-zoom"><i class="fa-solid fa-location-crosshairs"></i></button>
+                    </div>
+
+                    <!-- PIN POPUP ARMADA T1 SIMULATION -->
+                    <div class="map-truck-pin-popup" style="top: 55%; left: 58%;">
+                        <div class="popup-box">
+                            <i class="fa-solid fa-truck-moving"></i>
+                            <span>Truk T1 - Bergerak</span>
+                        </div>
+                        <div class="popup-arrow"></div>
+                    </div>
+
+                    <!-- LEGENDA PETA FLOATING -->
+                    <div class="map-legend-floating-card">
+                        <h4>Legenda Peta</h4>
+                        <ul>
+                            <li><span class="line-ln line-green"></span> Rute Aktif (T1)</li>
+                            <li><span class="line-ln line-dashed"></span> Rute Tinjauan</li>
+                            <li><span class="marker-pt mark-circle"></span> Pemberhentian Selesai</li>
+                            <li><span class="marker-pt mark-truck"></span> Posisi Armada</li>
+                        </ul>
+                    </div>
+
+                    <!-- BOTTOM METRICS BAR OVERLAY PETA -->
+                    <div class="map-bottom-metrics-bar">
+                        
+                        <div class="metric-mini-card">
+                            <p class="m-lbl">ARMADA AKTIF</p>
+                            <div class="m-val-group">
+                                <h3>18</h3>
+                                <span class="m-sub text-green">+2</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-mini-card">
+                            <p class="m-lbl">EFISIENSI RUTE</p>
+                            <div class="m-val-group">
+                                <h3>84%</h3>
+                                <span class="m-sub text-green"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="metric-mini-card">
+                            <p class="m-lbl">TOTAL SAMPAH TERANGKUT</p>
+                            <div class="m-val-group">
+                                <h3>142 <span class="unit">Ton</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="metric-action-card-green">
+                            <div class="act-txt">
+                                <span class="act-lbl">LAPORAN MONITORING</span>
+                                <h4>Lihat Ringkasan</h4>
+                            </div>
+                            <i class="fa-solid fa-chevron-right act-arrow"></i>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

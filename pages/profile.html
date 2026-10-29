@@ -9,13 +9,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <link rel="stylesheet" href="css/profile.css" />
-    <link rel="stylesheet" href="css/bar.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../css/bar.css" />
 
     <!-- HANYA PANGGIL FOOTER DI SINI (Sidebar & Navbar lama dihapus agar tidak bentrok) -->
-    <script src="js/components/footer.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
 
     <style>
       /* =======================================================
@@ -44,7 +44,7 @@
             <!-- KARTU UTAMA: FOTO PROFIL -->
             <div class="profile-hero-card">
               <div class="hero-avatar-container">
-                <img src="images/profile.png" alt="Putri Do Young" />
+                <img src="../images/profile.png" alt="Put Tree Do Young" />
                 <div class="avatar-edit-badge">
                   <i class="fa-solid fa-camera"></i>
                 </div>
@@ -161,6 +161,11 @@
                     <i class="fa-solid fa-chevron-down select-arrow"></i>
                   </div>
                 </div>
+
+                <a class="settings-logout-link" href="/auth/login.html">
+                  <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                  Logout dari akun
+                </a>
               </div>
 
               <!-- KARTU 4: KEAMANAN -->
@@ -219,7 +224,7 @@
     </app-navigation>
 
     <!-- SCRIPT UTAMA DI LINK PALING BAWAH -->
-    <script src="js/reveal-content.js"></script>
-    <script src="js/components/bar.js"></script>
+    <script src="../js/reveal-content.js"></script>
+    <script src="../js/components/bar.js"></script>
   </body>
 </html>

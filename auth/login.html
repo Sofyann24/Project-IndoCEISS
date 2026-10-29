@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form - Batam Eco Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
 
@@ -23,12 +23,12 @@
                 </div>
             </div>
 
-            <form action="../dashboard.html" method="GET">
+            <form action="/pages/dashboard.html" method="GET">
                 <div class="form-group">
                     <label>EMAIL ADDRESS</label>
                     <div class="input-with-icon">
                         <i class="fa-regular fa-envelope field-icon"></i>
-                        <input type="email" placeholder="name@company.com" >
+                        <input type="email" placeholder="email@example.com" >
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-auth-submit-full"><a href="../dashboard.html">Sign In</a> <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></button>
+                <button type="submit" class="btn-auth-submit-full">Sign In <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i></button>
 
                 <div class="login-divider">
                     <span>OR CONTINUE WITH</span>
@@ -52,13 +52,13 @@
 
                 <div class="oauth-container-row">
                     <button type="button" class="btn-google-oauth">
-                        <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/web-24dp/logo_googleg_color_24dp.png" alt="Google Logo">
+                        <img src="/images/google.png" alt="Google Logo">
                         Sign in with Google
                     </button>
                 </div>
             </form>
 
-            <p class="auth-footer-text">Don't have an account? <a href="register.html">Register here</a></p>
+            <p class="auth-footer-text">Don't have an account? <a href="/auth/register.html">Register here</a></p>
         </div>
 
         <footer class="register-page-footer">

@@ -480,11 +480,15 @@
 .radar-map-frame {
   width: 100%;
   height: 320px;
-  background-size: cover;
-  background-position: center;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+}
+
+#climate-weather-map {
+  width: 100%;
+  height: 100%;
+  background-color: #e8f0ed;
 }
 
 /* Lingkaran Deteksi Pulse Radar */
@@ -561,6 +565,10 @@
   border-radius: 4px;
   font-size: 0.75rem;
   cursor: pointer;
+}
+
+.radar-map-controls {
+  z-index: 500;
 }
 
 .climate-right-sidebar-panel {

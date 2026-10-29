@@ -92,13 +92,13 @@ class DashboardSidebar extends HTMLElement {
                     <p>Eco-Monitoring System</p>
                 </div>
                 <ul class="sidebar-nav-menu">
-                    <a href="dashboard.html"><li class="${activePage === "dashboard" ? "active" : ""}"><i class="fa-solid fa-table-columns"></i> Dashboard</li></a>
-                    <a href="climate.html"><li class="${activePage === "climate tracking" ? "active" : ""}"><i class="fa-solid fa-chart-line"></i> Climate Tracking</li></a>
-                    <a href="traffic.html"><li class="${activePage === "traffic" ? "active" : ""}"><i class="fa-solid fa-map-location-dot"></i> Live Traffic Map</li></a>
-                    <a href="waste_management.html"><li class="${activePage === "waste-schedule" ? "active" : ""}"><i class="fa-solid fa-calendar-days"></i> Waste Schedule</li></a>
-                    <a href="resources.html"><li class="${activePage === "resources" ? "active" : ""}"><i class="fa-solid fa-folder-open"></i> Resources</li></a>
+                    <a href="/pages/dashboard.html"><li class="${activePage === "dashboard" ? "active" : ""}"><i class="fa-solid fa-table-columns"></i> Dashboard</li></a>
+                    <a href="/pages/climate.html"><li class="${activePage === "climate tracking" ? "active" : ""}"><i class="fa-solid fa-chart-line"></i> Climate Tracking</li></a>
+                    <a href="/pages/traffic.html"><li class="${activePage === "traffic" ? "active" : ""}"><i class="fa-solid fa-map-location-dot"></i> Live Traffic Map</li></a>
+                    <a href="/pages/waste_management.html"><li class="${activePage === "waste-schedule" ? "active" : ""}"><i class="fa-solid fa-calendar-days"></i> Waste Schedule</li></a>
+                    <a href="/pages/resources.html"><li class="${activePage === "resources" ? "active" : ""}"><i class="fa-solid fa-folder-open"></i> Resources</li></a>
                     
-                    <li class="${activePage === "settings" ? "active" : ""}"><i class="fa-solid fa-gear"></i><a href="profile.html">Settings</a> </li>
+                    <li class="${activePage === "settings" ? "active" : ""}"><i class="fa-solid fa-gear"></i><a href="/pages/profile.html">Settings</a> </li>
                 </ul>
             </div>
         `;
